@@ -1,0 +1,31 @@
+.auth {
+  min-width: 450px;
+  padding: 45px 41px 39px;
+  border-radius: 20px;
+  background-color: white;
+  font-size: 10px;
+  font-weight: 400;
+}
+.title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--primary-color);
+  font-family: 'Roboto Slab', serif;
+}
+.button {
+  display: block;
+  font-size: 12px;
+  width: 100%;
+  text-align: center;
+  background: transparent;
+  border: none;
+  color: var(--dark-gray-color);
+  cursor: pointer;
+}
+.message {
+  display: none;
+  text-align: center;
+  font-size: 14px;
+  color: black;
+}

@@ -1,15 +1,11 @@
 import './App.css';
-import FormButton from './components/form-button';
-import FormInput from './components/form-input';
+import Authorization from './components/authorization';
 
 function App() {
   return (
     <div className="App">
       <div className='wrap'>
-        <div className='auth'>
-          <FormInput/>
-          <FormButton text="Отправить"/>
-        </div>
+        <Authorization />
       </div>
     </div>
   );

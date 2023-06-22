@@ -8,4 +8,5 @@
   border-radius: 12px;  
   background-color: var(--primary-color);
   color:white;
+  cursor: pointer;
 }
