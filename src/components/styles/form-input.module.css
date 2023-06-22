@@ -1,0 +1,15 @@
+/* .auth input { */
+.input {
+  display: block;
+  width: 100%;
+  padding: 0 15px;
+  margin: 21px 0;
+  border: 1px solid var(--light-gray-color);
+  line-height: 40px;
+  border-radius: 12px;  
+  color: var(--primary-color);
+}
+.input[type="submit"] {  
+  background-color: var(--primary-color);
+  color:white;
+}

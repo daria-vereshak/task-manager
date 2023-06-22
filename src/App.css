@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+:root{
+  --primary-color: rgb(255, 87, 51);
+  --primary-color-opacity: rgba(255, 87, 51, 0.1);
+  --light-gray-color: #E5E5E5;
+  --dark-gray-color: #8E8E8E;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.wrap
+{
+  background: var(--primary-color-opacity);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Raleway', sans-serif;
+}
