@@ -1,7 +1,7 @@
 import React from "react";
-import styles from './styles/authorization.module.css';
+import styles from './styles/auth.module.css';
 import Form from './form'
-const Authorization = () => {
+const Auth = () => {
   return(
     <div className='auth'>
       <Form type="auth"/>
@@ -9,4 +9,4 @@ const Authorization = () => {
   )
 }
 
-export default Authorization;
+export default Auth;

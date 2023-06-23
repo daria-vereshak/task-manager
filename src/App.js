@@ -1,12 +1,17 @@
 import './App.css';
-import Authorization from './components/authorization';
+import {Routes, Route} from 'react-router-dom';
+import Auth from './components/auth';
+import Authorization from './pages/authorization';
+import MainPage from './pages/main-page/main-page';
 
 function App() {
   return (
     <div className="App">
-      <div className='wrap'>
-        <Authorization />
-      </div>
+      <Routes>
+        <Route path='/' element={<Authorization />}/>
+        <Route path='/main' element={<MainPage />} />
+      </Routes>
+
     </div>
   );
 }
