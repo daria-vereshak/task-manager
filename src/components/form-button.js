@@ -3,7 +3,7 @@ import styles from './styles/form-button.module.css';
 
 const FormButton = ({text, onClick}) => {
   return(
-    <button className={styles.button} onClickk = {onClick}>{text}</button>
+    <button className={styles.button} onClick = {onClick}>{text}</button>
   )
 }
 
