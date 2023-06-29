@@ -6,6 +6,6 @@ const Authorization = () => {
       <Auth/>
     </div>
   )
-}
+} 
 
 export default Authorization;

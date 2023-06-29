@@ -33,7 +33,7 @@ const Form = () => {
       <FormInput type="text" placeholder="Логин" isRequired = {true} value={form.login} />
       <FormInput type="password" placeholder="Пароль" isRequired = {true} value={form.password} />
       <FormInput type="password" placeholder="Повторите пароль" isRequired = {true} value={form.password} />
-      <FormButton text = "Зарегистрироваться" onClick={event=>onSubmit('auth', dispatch, event)} />
+      <FormButton text = "Зарегистрироваться" onClick={event=>onSubmit('reg', dispatch, event)} />
       </form>
       <button className={styles.button} onClick={onToggleButtonClicked}>Уже зарегистрированы? Авторизуйтесь!</button>
   </>
