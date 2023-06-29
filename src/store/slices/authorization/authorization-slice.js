@@ -4,10 +4,17 @@ import AuthRequests from "../../../api/requests/auth/auth";
 export const asyncSignIn = createAsyncThunk(
   'authorization/asyncSignIn',
   async(_, thunkApi) => {
-    return {
-      id: '12',
-      accessToken: 'ok',
-      refreshToken: 'upload',
+    const state = thunkApi.getState().authorization;
+    if (!state.login || !state.password) {
+      return thunkApi.rejectWithValue('Не все поля заполнены');
+    }
+    else {
+      try {
+        const {data} = await AuthRequests.authorization(state.login, state.password);
+        return data;
+      } catch (e) {
+        return thunkApi.rejectWithValue(e?.body?.data?.message);
+      }
     }
   }
 );
@@ -54,9 +61,13 @@ const authorizationSlice = createSlice({
       state.password = action.payload.password;
       state.error = action.payload.error;
     },
-    // exit:state => {
-    //   localStorage.clear();
-    // }
+    toggleAuth:(state, action) => {
+      state.auth = action.payload;
+    },
+    exit:state => {
+      localStorage.clear();
+      state.auth = false;
+    }
   },
   extraReducers:{
     [asyncSignUp.fulfilled.type]:(state, action)=>{
@@ -92,6 +103,6 @@ const authorizationSlice = createSlice({
   }
 });
 
-export const { changeLogin, changePassword, exit, formToggle } = authorizationSlice.actions;
+export const { changeLogin, changePassword, exit, toggleAuth, formToggle } = authorizationSlice.actions;
 //export default authorizationSlice;
 export default authorizationSlice.reducer;
