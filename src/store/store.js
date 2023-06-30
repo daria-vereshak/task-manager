@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-//import authorizationSlice from "./slices/authorization/authorization-slice";
 import authorizationReducer from "./slices/authorization/authorization-slice";
+import mainPageReducer from "./slices/main-page/main-page-slice"
 import { useDispatch } from "react-redux";
 
 //export type RootState = Return<typeof store.getState>;
@@ -9,8 +9,14 @@ import { useDispatch } from "react-redux";
 export const Dispatch = () => useDispatch();
 //export default store;
 
-export default configureStore({
-  reducer: {
-    authorization: authorizationReducer,
-  }
+const rootReducer = combineReducers({
+  authorization: authorizationReducer,
+  mainPage: mainPageReducer,
 });
+
+export default configureStore(rootReducer);
+// export default configureStore({
+//   reducer: {
+//     authorization: authorizationReducer,
+//   }
+// });
