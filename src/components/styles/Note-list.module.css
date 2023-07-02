@@ -1,0 +1,11 @@
+.list {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 7px;
+  border-radius: 20px 0 0 0;
+  background-color: white;
+  height: 90vh;
+  width: 24.5vw;
+  overflow-block: auto;
+}

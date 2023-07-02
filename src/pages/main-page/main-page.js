@@ -1,10 +1,14 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import NoteList from "../../components/Note-list";
+import styles from "./main-page.module.css"
+import Header from "../../components/Header";
 
 const MainPage = () => {
   return (
     <div>
-      тут будет главная страница
+      <Header />
+      <NoteList />
     </div>
   )
 }
