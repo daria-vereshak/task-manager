@@ -1,0 +1,33 @@
+:root {
+  --cell-height: 18vh;
+  --cell-width: 10.5vw;
+}
+.wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 0 20px 0 0;
+  background-color: white;
+}
+.month {
+  display: grid;
+  grid-template-columns: minmax(var(--cell-width),var(--cell-width)) minmax(var(--cell-width),var(--cell-width)) minmax(var(--cell-width),var(--cell-width)) minmax(var(--cell-width),var(--cell-width)) minmax(var(--cell-width),var(--cell-width)) minmax(var(--cell-width),var(--cell-width)) minmax(var(--cell-width),var(--cell-width));
+  grid-template-rows: minmax(var(--cell-height),var(--cell-height)) minmax(var(--cell-height),var(--cell-height)) minmax(var(--cell-height),var(--cell-height)) minmax(var(--cell-height),var(--cell-height)) minmax(var(--cell-height),var(--cell-height));
+}
+.monthDay {
+  position: relative;
+}
+.empty {
+  position: relative;
+}
+.dayName {
+  position: absolute;
+  height: var(--cell-height);
+  width: var(--cell-width);
+  left: 5px;
+  color: var(--primary-color);
+  opacity: 0.5;
+}
+.date {
+  text-align: center;
+}

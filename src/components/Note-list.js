@@ -5,7 +5,6 @@ import styles from "./styles/Note-list.module.css";
 
 const NoteList = () => {
   const notes = useSelector(state => state.mainPage.notes);
-  console.log(notes);
   
   return (
     <div className={styles.list}>

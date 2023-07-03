@@ -1,10 +1,17 @@
+:root{
+  --primary-color: rgb(255, 87, 51);
+  --primary-color-opacity: rgba(255, 88, 51, 0.102);
+  --primary-color-half-opacity: rgba(255, 88, 51, 0.5);
+  --light-gray-color: #E5E5E5;
+  --dark-gray-color: #8E8E8E;
+}
 li {
   list-style: none;
   display: flex;
   margin: 5px 0;
   padding: 7px;
   color: black;
-  background-color:rgb(237, 193, 193);
+  background: var(--primary-color-half-opacity);
   font-size: 18px;
   border-radius: 6px;
 }

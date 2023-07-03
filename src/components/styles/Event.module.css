@@ -1,3 +1,10 @@
+:root{
+  --primary-color: rgb(255, 87, 51);
+  --primary-color-opacity: rgba(255, 88, 51, 0.102);
+  --primary-color-half-opacity: rgba(255, 88, 51, 0.5);
+  --light-gray-color: #E5E5E5;
+  --dark-gray-color: #8E8E8E;
+}
 .event {
   width: 93%;
   margin-left: auto;
@@ -7,11 +14,25 @@
   display: flex;
   align-items:center;
   border-radius: 6px;
-  background-color: var(--primary-color);
+  background: var(--primary-color-half-opacity);
   color:black;
   font-size: 12px;
 }
-.event__text {
+.done {
+  width: 93%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2px;
+  padding: 0 4px;
+  display: flex;
+  align-items:center;
+  border-radius: 6px;
+  background: var(--primary-color-half-opacity);
+  color:black;
+  font-size: 12px;
+  opacity: 0.3;
+}
+.eventText {
   overflow: hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
@@ -21,5 +42,6 @@
 .time {
   height: 14px;
   line-height: 14px;
-  margin-left: 4px;
+  margin-left: 3px;
+  margin-right: 3px;
 }
