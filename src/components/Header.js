@@ -1,19 +1,23 @@
 import React from "react";
-import FormButton from "./form-button";
 import styles from "./styles/Header.module.css";
+import { Dispatch } from "../store/store";
+import { Navigate } from "react-router-dom";
+import { signOut } from "../store/slices/authorization/authorization-slice";
+
 
 const Header = () => {
+  const dispatch = Dispatch();
+  const onExit = () => {
+    dispatch(signOut());
+    <Navigate to="/" />;
+  }
   return (
     <header>
-    <h1 className={styles.title}>Календарь</h1>
-    <form action="#" method="post">
-      <div className={styles.exit}>
-      <FormButton text="Выход" onClick={()=>{}} />
-      </div>
-      {/* <input type="submit" value="Выйти" name="exit" className="exit"> */}
-    </form>
-  </header>
-  )
+      <h1 className={styles.title}>Календарь</h1>
+      <button className={styles.exit} onClick={onExit}>Выход</button>
+
+    </header>
+  );
 };
 
 export default Header;

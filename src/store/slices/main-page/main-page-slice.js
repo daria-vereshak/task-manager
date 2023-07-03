@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { signOut } from "../authorization/authorization-slice";
+import { Dispatch } from "../../store";
 
 const initialState = {
   notes: [
@@ -9,7 +11,13 @@ const initialState = {
 const mainPageSlice = createSlice({
   name: "mainPage",
   initialState,
-  reducers: {}
+  reducers: {
+    exit: (state) => {
+      //очистить объекты
+      Dispatch(signOut());
+    }
+  }
 })
 
+export const { exit } = mainPageSlice.actions;
 export default mainPageSlice.reducer;

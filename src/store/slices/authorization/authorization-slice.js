@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import AuthRequests from "../../../api/requests/auth/auth";
 
 export const asyncSignIn = createAsyncThunk(
@@ -57,6 +57,8 @@ export const asyncUpdateRefreshToken = createAsyncThunk(
   }
 );
 
+export const signOut = createAction("authorization/signOut");
+
 const initialState = {
   auth: false,
   typeForm: "auth", //auth, reg
@@ -91,11 +93,7 @@ const authorizationSlice = createSlice({
     },
     changeTimeAccessToken: (state, action) => {
       state.timeAccessToken = action.payload;
-    },
-    exit: (state) => {
-      localStorage.clear();
-      state.auth = false;
-    },
+    }
   },
   extraReducers: {
     [asyncSignUp.fulfilled.type]: (state, action) => {
@@ -185,6 +183,13 @@ const authorizationSlice = createSlice({
       console.log(action.payload);
       state.password = "";
     },
+    [signOut]: (state, action) => {
+      localStorage.clear();
+      state.auth = false;
+      state.typeForm  = "auth";
+      state.createDateAccessToken = 0;
+      state.timeAccessToken = 0;
+    }
   },
 });
 
