@@ -9,8 +9,9 @@ const MainPage = () => {
   return (
     <div>
       <Header />
-      <Month />
       <NoteList />
+      <Month />
+      
     </div>
   )
 }

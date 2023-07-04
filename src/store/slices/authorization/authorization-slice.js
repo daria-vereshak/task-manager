@@ -113,7 +113,6 @@ const authorizationSlice = createSlice({
         "refresh_token",
         JSON.stringify(action.payload.refreshToken)
       );
-      console.log(action.payload);
       state.login = "";
       state.error = "";
       state.password = "";
@@ -122,7 +121,6 @@ const authorizationSlice = createSlice({
     [asyncSignUp.rejected.type]: (state, action) => {
       state.login = "";
       state.error = action.payload;
-      console.log(action.payload);
       state.password = "";
     },
     [asyncSignIn.fulfilled.type]: (state, action) => {
@@ -142,7 +140,6 @@ const authorizationSlice = createSlice({
         "refresh_token",
         JSON.stringify(action.payload.refreshToken)
       );
-      console.log(action.payload);
       state.login = "";
       state.error = "";
       state.password = "";
@@ -151,7 +148,6 @@ const authorizationSlice = createSlice({
     [asyncSignIn.rejected.type]: (state, action) => {
       state.login = "";
       state.error = action.payload;
-      console.log(action.payload);
       state.password = "";
     },
     [asyncUpdateRefreshToken.fulfilled.type]: (state, action) => {
@@ -171,7 +167,6 @@ const authorizationSlice = createSlice({
         "refresh_token",
         JSON.stringify(action.payload.refreshToken)
       );
-      console.log(action.payload);
       state.login = "";
       state.error = "";
       state.password = "";
@@ -180,7 +175,6 @@ const authorizationSlice = createSlice({
     [asyncUpdateRefreshToken.rejected.type]: (state, action) => {
       state.login = "";
       state.error = action.payload;
-      console.log(action.payload);
       state.password = "";
     },
     [signOut]: (state, action) => {

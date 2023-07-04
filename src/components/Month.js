@@ -25,8 +25,6 @@ const Month = () => {
       emptyDaysAfter.push(i);
     }
   }
-
-  const notes = useSelector(state => state.mainPage.notes);
   
   return (
     <div className={styles.wrapper}>
@@ -40,7 +38,7 @@ const Month = () => {
           <div className={styles.monthDay}>
             <p className={styles.dayName}>{daysOfWeek[(day + firstDay - 1) % 7]}</p>
             <div className={styles.date}>{day}</div>
-            <Events day={day.toString()} />
+            <Events day={day} month={month} year={year} />
           </div>
         )}
       </div>

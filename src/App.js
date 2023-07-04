@@ -54,6 +54,10 @@ function App() {
           path="/main"
           element={auth ? <MainPage /> : <Navigate to="/" />}
         />
+        {/* <Route
+          path="/main"
+          element= {<MainPage />}
+        /> */}
       </Routes>
     </div>
   );

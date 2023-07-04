@@ -1,4 +1,4 @@
-import axiosConfig from '../../axios.config';
+import {axiosConfig} from '../../axios.config';
 
 class AuthRequests {
   authorization(login, password) {
