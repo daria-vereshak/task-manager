@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useDebugValue } from "react";
 import styles from "./styles/form.module.css";
 import FormInput from "./form-input";
 import FormButton from "./form-button";
@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 
 const Form = () => {
   const form = useSelector((state) => state.authorization);
+  const error = useSelector((state) => state.authorization.error);
 
   const dispatch = Dispatch();
 
@@ -31,6 +32,7 @@ const Form = () => {
       <div className={styles.auth}>
         <form>
           <h2 className={styles.title}>Регистрация</h2>
+          {error ? <p className={styles.error}>{error}</p>:null}
           <FormInput
             type="text"
             placeholder="Логин"
@@ -40,12 +42,6 @@ const Form = () => {
           <FormInput
             type="password"
             placeholder="Пароль"
-            isRequired={true}
-            value={form.password}
-          />
-          <FormInput
-            type="password"
-            placeholder="Повторите пароль"
             isRequired={true}
             value={form.password}
           />
@@ -64,6 +60,7 @@ const Form = () => {
       <div className={styles.auth}>
         <form>
           <h2 className={styles.title}>Авторизация</h2>
+          {error ? <p className={styles.error}>{error}</p>:null}
           <FormInput
             type="text"
             placeholder="Логин"

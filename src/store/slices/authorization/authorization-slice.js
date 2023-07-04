@@ -15,7 +15,7 @@ export const asyncSignIn = createAsyncThunk(
         );
         return data;
       } catch (e) {
-        return thunkApi.rejectWithValue(e?.body?.data?.message);
+        return thunkApi.rejectWithValue(e?.response?.data?.message);
       }
     }
   }
@@ -35,7 +35,7 @@ export const asyncSignUp = createAsyncThunk(
         );
         return data;
       } catch (e) {
-        return thunkApi.rejectWithValue(e?.body?.data?.message);
+        return thunkApi.rejectWithValue(e?.response?.data?.message);
       }
     }
   }
@@ -52,7 +52,7 @@ export const asyncUpdateRefreshToken = createAsyncThunk(
         );
       return data;
     } catch (e) {
-      return thunkApi.rejectWithValue(e?.body?.data?.message);
+      return thunkApi.rejectWithValue(e?.response?.data?.message);
     }
   }
 );
@@ -176,6 +176,10 @@ const authorizationSlice = createSlice({
       state.login = "";
       state.error = action.payload;
       state.password = "";
+      state.auth = false;
+      state.typeForm = "auth";
+      state.createDateAccessToken = 0;
+      state.timeAccessToken = 0;
     },
     [signOut]: (state, action) => {
       localStorage.clear();
