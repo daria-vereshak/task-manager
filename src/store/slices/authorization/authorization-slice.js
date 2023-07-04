@@ -95,8 +95,9 @@ const authorizationSlice = createSlice({
       state.timeAccessToken = action.payload;
     }
   },
-  extraReducers: {
-    [asyncSignUp.fulfilled.type]: (state, action) => {
+  extraReducers(builder) {
+    builder
+      .addCase(asyncSignUp.fulfilled, (state, action) => {
       localStorage.setItem(
         "time_access_token",
         JSON.stringify(action.payload.access_expiresIn)
@@ -117,77 +118,77 @@ const authorizationSlice = createSlice({
       state.error = "";
       state.password = "";
       state.auth = true;
-    },
-    [asyncSignUp.rejected.type]: (state, action) => {
-      state.login = "";
-      state.error = action.payload;
-      state.password = "";
-    },
-    [asyncSignIn.fulfilled.type]: (state, action) => {
-      localStorage.setItem(
-        "time_access_token",
-        JSON.stringify(action.payload.access_expiresIn)
-      );
-      localStorage.setItem(
-        "create_date_access_token",
-        JSON.stringify(action.payload.access_createDate)
-      );
-      localStorage.setItem(
-        "access_token",
-        JSON.stringify(action.payload.accessToken)
-      );
-      localStorage.setItem(
-        "refresh_token",
-        JSON.stringify(action.payload.refreshToken)
-      );
-      state.login = "";
-      state.error = "";
-      state.password = "";
-      state.auth = true;
-    },
-    [asyncSignIn.rejected.type]: (state, action) => {
-      state.login = "";
-      state.error = action.payload;
-      state.password = "";
-    },
-    [asyncUpdateRefreshToken.fulfilled.type]: (state, action) => {
-      localStorage.setItem(
-        "time_access_token",
-        JSON.stringify(action.payload.access_expiresIn)
-      );
-      localStorage.setItem(
-        "create_date_access_token",
-        JSON.stringify(action.payload.access_createDate)
-      );
-      localStorage.setItem(
-        "access_token",
-        JSON.stringify(action.payload.accessToken)
-      );
-      localStorage.setItem(
-        "refresh_token",
-        JSON.stringify(action.payload.refreshToken)
-      );
-      state.login = "";
-      state.error = "";
-      state.password = "";
-      state.auth = true;
-    },
-    [asyncUpdateRefreshToken.rejected.type]: (state, action) => {
-      state.login = "";
-      state.error = action.payload;
-      state.password = "";
-      state.auth = false;
-      state.typeForm = "auth";
-      state.createDateAccessToken = 0;
-      state.timeAccessToken = 0;
-    },
-    [signOut]: (state, action) => {
-      localStorage.clear();
-      state.auth = false;
-      state.typeForm  = "auth";
-      state.createDateAccessToken = 0;
-      state.timeAccessToken = 0;
-    }
+      })
+      .addCase(asyncSignUp.rejected, (state, action) => {
+        state.login = "";
+        state.error = action.payload;
+        state.password = "";
+      })
+      .addCase(asyncSignIn.fulfilled, (state, action) => {
+        localStorage.setItem(
+          "time_access_token",
+          JSON.stringify(action.payload.access_expiresIn)
+        );
+        localStorage.setItem(
+          "create_date_access_token",
+          JSON.stringify(action.payload.access_createDate)
+        );
+        localStorage.setItem(
+          "access_token",
+          JSON.stringify(action.payload.accessToken)
+        );
+        localStorage.setItem(
+          "refresh_token",
+          JSON.stringify(action.payload.refreshToken)
+        );
+        state.login = "";
+        state.error = "";
+        state.password = "";
+        state.auth = true;
+      })
+      .addCase(asyncSignIn.rejected, (state, action) => {
+        state.login = "";
+        state.error = action.payload;
+        state.password = "";
+      })
+      .addCase(asyncUpdateRefreshToken.fulfilled, (state, action) => {
+        localStorage.setItem(
+          "time_access_token",
+          JSON.stringify(action.payload.access_expiresIn)
+        );
+        localStorage.setItem(
+          "create_date_access_token",
+          JSON.stringify(action.payload.access_createDate)
+        );
+        localStorage.setItem(
+          "access_token",
+          JSON.stringify(action.payload.accessToken)
+        );
+        localStorage.setItem(
+          "refresh_token",
+          JSON.stringify(action.payload.refreshToken)
+        );
+        state.login = "";
+        state.error = "";
+        state.password = "";
+        state.auth = true;
+      })
+      .addCase(asyncUpdateRefreshToken.rejected, (state, action) => {
+        state.login = "";
+        state.error = action.payload;
+        state.password = "";
+        state.auth = false;
+        state.typeForm = "auth";
+        state.createDateAccessToken = 0;
+        state.timeAccessToken = 0;
+      })
+      .addCase(signOut, (state, action) => {
+        localStorage.clear();
+        state.auth = false;
+        state.typeForm  = "auth";
+        state.createDateAccessToken = 0;
+        state.timeAccessToken = 0;
+      })
   },
 });
 
